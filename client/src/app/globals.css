@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 120 100% 25%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 120 100% 25%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, #000000 0%, #001a00 25%, #003300 50%, #001a00 75%, #000000 100%);
+    position: relative;
+  }
+  
+  .gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(0, 255, 0, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0, 204, 0, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .glass-effect {
+    background: rgba(0, 255, 0, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 255, 0, 0.1);
+  }
+  
+  .yield-card {
+    @apply glass-effect rounded-2xl p-8;
+    border: 1px solid rgba(0, 255, 0, 0.15);
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 51, 0, 0.1) 100%);
+    transition: all 0.5s ease;
+  }
+  
+  .yield-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 255, 0, 0.15);
+    border-color: rgba(0, 255, 0, 0.3);
+    background: rgba(0, 255, 0, 0.05);
+  }
+  
+  .primary-gradient {
+    background: linear-gradient(135deg, #00ff00 0%, #00cc00 50%, #009900 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-text {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  
+  .subtitle-text {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    line-height: 1.4;
+  }
+  
+  .card-title {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .metric-value {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+  
+  .green-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
